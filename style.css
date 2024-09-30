@@ -1,0 +1,108 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#principal{
+    width: 960px;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
+/* #cabecalho{
+    display: flex;  
+    width: 9600px; 
+}
+
+.container{
+   display: flex;
+    border: 1px solid black;
+}
+
+.container img{
+    width: 150px;
+    margin-right: 20px;
+}
+
+#titulo1{
+    margin: 20px;
+}
+
+#titulo2{
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#logo{
+    margin-right: 50px;
+} */
+
+
+/*CSS com mesmas caracteristicas*/
+#conteiner-cabecalho,
+#conteiner-dados,
+#campo-cnpj,
+#razaoSocial,
+#unidadeObra{
+    display: flex;
+}
+
+fieldset{
+    border: 1px solid black;
+    margin: 10px;  
+}
+
+fieldset legend{
+    margin-bottom: 20px;
+}
+
+#campo-cnpj,
+#razaoSocial,
+#unidadeObra,
+#nome-funcionario,
+#registro-civil,
+#cadastro-pessoa-fisica
+{
+    margin-left: 20px;
+    flex-direction: column;
+}
+
+/*CABECALHO*/
+#conteiner-cabecalho{
+    border: 1px solid black;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 5px;
+}
+
+div img{
+    width: 150px;
+}
+
+#titulo1, #titulo2{
+    
+    font-size: 20px;
+}
+
+/*DADOS DA EMPRESA*/
+#conteiner-dados{
+    justify-content: space-between;   
+    margin-top: 30px;
+}
+
+
+
+#cnpj{
+    width: 220px;
+}
+
+#razaoSocial{
+    width: 300px;
+}
+
+/*DADOS DO FUNCIONARIO*/
+#secao1, #secao2{
+    border: 1px solid red;
+}
+
+
+
+
