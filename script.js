@@ -14,25 +14,30 @@ function mascaraCNPJ(cnpj) {
     cnpj.value = value; // Atualiza o valor do input
   }
 
-//   function buscarDadosCNPJ() {
-//     const cnpj = document.getElementById('cnpj').value.replace(/\D/g, '');
   
-//     if (cnpj.length === 14) { // Verifica se o CNPJ tem 14 dígitos
-//       fetch(`https://brasilapi.com.br/api/cnpj/v1/${cnpj}`)
-//         .then(response => response.json())
-//         .then(data => {
-//           if (data.status === "OK") {
-//             document.getElementById('razaoSocial').value = data.nome;
-//           } else {
-//             alert('CNPJ não encontrado ou inválido.');
-//           }
-//         })
-//         .catch(error => {
-//           console.error('Erro ao buscar CNPJ:', error);
-//           alert('Ocorreu um erro ao buscar o CNPJ.');
-//         });
-//     } else {
-//       alert('CNPJ incompleto.');
-//     }
-//   }
-  
+function aplicarMascaraCPF(cpf) {
+  cpf = cpf.replace(/\D/g, ""); // Remove tudo que não for número
+  cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca um ponto entre o terceiro e quarto dígito
+  cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca um ponto entre o sexto e sétimo dígito
+  cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2"); // Coloca um traço entre o nono e décimo dígito
+  return cpf;
+}
+
+function formatarCPF() {
+  var cpfInput = document.getElementById("cpf");
+  cpfInput.value = aplicarMascaraCPF(cpfInput.value);
+}
+
+// Remove todos os caracteres que não sejam números
+function somenteNumero(input) {
+  input.value = input.value.replace(/[^0-9]/g, '');
+}
+
+// Remove todos os caracteres que sejam números ou símbolos
+function somenteLetras(input){
+  input.value = input.value.replace(/[^a-zA-Z]/g, '');
+}
+
+function dica(){
+  alert("Informe os dados da unidade onde o funcionário está lotado atualmente.")
+}
