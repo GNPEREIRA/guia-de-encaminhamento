@@ -88,28 +88,31 @@
             <div id="exames">
                 <div class="tipos">
                     <label for="tipos">Tipos</label>
-                    <select name="tipos" id="tipos">
+                    <select name="tipos" id="tipos-exames" onchange="adicionar()">
                         <option value=""></option>
                         <option value="admissional">Admissional</option>
                         <option value="avaliacao-medica">Avaliação médica</option>
+                        <option value="consulta-com-especialista">Consulta com especialista</option>
                         <option value="demissional">Demissional</option>
                         <option value="laudo-pcd">Laudo de PCD</option>
                         <option value="mudança-de-funcao">Mudança de função</option>
                         <option value="periodico">Periódico</option>
                         <option value="retorno-ao-trabalho">Retorno ao trabalho</option>
                         <option value="trabalho-em-altura">Trabalho em altura</option>
+                        <option value="clt">Toxicológico (CLT)</option>
+                        <option value="detran">Toxicológico (DETRAN)</option>        
                     </select>
                 </div>
 
-                <div class="toxicologicos">
-                    <label for="toxicologicos">Toxicológicos</label>
-                    <select name="toxicologicos" id="toxicologicos">
-                        <option value=""></option>
-                        <option value="clt">CLT</option>
-                        <option value="detran">DETRAN</option>        
-                    </select>
-                </div>
+                <!--Div onde será  criado o select de especialidades-->
+                <div id="especialidades"></div> 
+                
             </div>
+
+            <!--Div onde será criada a lista de exames-->
+            <div id="listaDeSelecionados"><h4 id="exames-selecionados"></h4></div>
+            
+            
 
         </fieldset>
 

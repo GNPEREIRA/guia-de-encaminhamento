@@ -44,7 +44,7 @@ input, select{
 .data-nascimento,
 .cargo,
 .setor,
-.toxicologicos{
+#especialidades{
     margin-left: 15px;
 }
 
@@ -58,13 +58,13 @@ input, select{
 .setor,
 .data-nascimento,
 .tipos,
-.toxicologicos{
+#especialidades{
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
 }
 
-/* Remove os controles no Chrome, Edge e Safari*/
+/*Remove os controles no Chrome, Edge e Safari*/
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -128,5 +128,28 @@ div img{
     grid-template-columns: 1fr 1fr;
 }
 
+.exames-selecionados{
+    color:#edb626;
+}
 
+#listaDeSelecionados{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 3px;
+}
 
+#listaDeSelecionados span{
+    border: 1px solid #edb626;
+    border-radius: 50px;
+    max-width: fit-content;
+    padding: 5px;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 8fr 0.2fr;
+    align-items: center;
+    text-align: center;
+}
+
+#excluir{
+    width: 20px;
+}
