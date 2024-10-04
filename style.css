@@ -1,12 +1,10 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background: #ccc9c9;
+    background: #061340;
 }
 #principal{
     width: 960px;
     margin: 0 auto;
-    border: 1px solid black;
-    background: #061340;
 }
 
 /*CSS com mesmas caracteristicas*/
@@ -19,7 +17,8 @@ body{
     margin: 10px;  
 }
 
-fieldset{
+fieldset,
+#recomendacoes{
     border-radius: 5px;
 }
 
@@ -44,7 +43,8 @@ input, select{
 .data-nascimento,
 .cargo,
 .setor,
-#especialidades{
+#tipos-especialidades,
+.pre-matricula{
     margin-left: 15px;
 }
 
@@ -58,7 +58,10 @@ input, select{
 .setor,
 .data-nascimento,
 .tipos,
-#especialidades{
+#tipos-especialidades,
+.data-admissao,
+.pre-matricula,
+.recomendacoes{
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
@@ -132,24 +135,34 @@ div img{
     color:#edb626;
 }
 
-#listaDeSelecionados{
+#listaDeSelecionados,
+#lista_de_especialidades{
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     gap: 3px;
 }
 
-#listaDeSelecionados span{
+#listaDeSelecionados span,
+#lista_de_especialidades span{
     border: 1px solid #edb626;
     border-radius: 50px;
     max-width: fit-content;
-    padding: 5px;
+    padding: 10px;
     font-size: 14px;
     display: grid;
-    grid-template-columns: 8fr 0.2fr;
+    grid-template-columns: 9fr 0.2fr;
     align-items: center;
     text-align: center;
 }
 
-#excluir{
+.excluir{
     width: 20px;
+}
+
+/*Recomendações*/
+#recomendacoes{
+    resize: none;
+    height: 100px;
+    padding: 5px 10px;
+    text-align: justify;
 }

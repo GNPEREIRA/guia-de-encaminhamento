@@ -105,15 +105,32 @@
                 </div>
 
                 <!--Div onde será  criado o select de especialidades-->
-                <div id="especialidades"></div> 
+                <div id="tipos-especialidades"></div>  
+                
+                <div class="data-admissao">
+                    <label for="data-admissao">Data de admissão</label>
+                    <input type="date" id="data-admissao">
+                </div>
+
+                <div class="pre-matricula">
+                    <label for="pre-matricula">Pré-matrícula</label>
+                    <input type="text" id="pre-matricula" inputmode="numeric" oninput="somenteNumero(this)">
+                </div>
                 
             </div>
 
             <!--Div onde será criada a lista de exames-->
-            <div id="listaDeSelecionados"><h4 id="exames-selecionados"></h4></div>
-            
-            
+            <div id="listaDeSelecionados"></div>
+                
+        </fieldset>
 
+        <!--Recomendações-->
+        <fieldset  class="box">
+            <legend>Recomendações / Observações</legend>
+
+            <div class="recomendacoes">
+                <textarea name="" id="recomendacoes"></textarea>    
+            </div>  
         </fieldset>
 
     </div><!--fim principal-->

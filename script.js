@@ -44,62 +44,76 @@ function dica(){
 }
 
 /*
- *VARIÁVEIR E FUNÇÕES RELATIVAS A OS TIPOS DE EXAMES
+ *VARIÁVEIS E FUNÇÕES RELATIVAS A OS TIPOS DE EXAMES
  *CAMPO DE EXAMES: DEVE INCLUIR O EXAME EM UMA LISTA(ARRAY) A CADA CLIQUE
 */
-let lista = [];//CRIA UM ARRAY LISTA
-function adicionar(){
-  let select = document.getElementById('tipos-exames');//SELECIONA A TAG SELECT
-  let valorSelecionado = select.options[select.selectedIndex].text;//CAPTURA O VALOR DA OPTION
-  let selecionados = document.getElementById('listaDeSelecionados');//TAG DIV ONDE SERÁ ADD A LISTA
-  let especialidades = document.getElementById('especialidades');
-  let examesSelecionados = document.getElementById('exames-selecionados');
+let lista = [];//CRIA UM ARRAY LISTA DE TIPOS DE EXAMES
+let lista2 = [];//CRIA UM ARRAY LISTA DE TIPOS DE ESPECIALIDADES
+let listaDeExames = [];
 
-  /*VERIFICA SE O VALOR JÁ FOI SELECIONADO OU SE ESTÁ EM BRANCO; 
-   *ESTA FUNÇÃO NÃO PERMITE A INCLUSÃO DUPLICADA OU EM BRANCO
-  **/
-  if(lista.find(item => item === valorSelecionado)){
-    console.log('Valor encontrado');
-  }else if(valorSelecionado == ''){
-    console.log('Valor em branco');
-  }else{
-    lista.push(valorSelecionado);//ARMAZENA O VALOR SELECIONADO NA ÚLTIMA POSIÇÃO DO ARRAY
-  }
-  console.log(lista.length);
+// Função principal para adicionar exames
+function adicionar() {
+    let select = document.getElementById('tipos-exames');
+    let valorSelecionado = select.options[select.selectedIndex].value;
+    let textoSelecionado = select.options[select.selectedIndex].text;
 
-  //MOSTRA O ARRAY NA DIV
-  selecionados.innerHTML = '<h4>Exames selecionados</h4>';
-  selecionados.innerHTML = lista.map(item => `<span>${item}<img src="/img/excluir.png" alt="excluir" id='excluir' onclick='excluir()'></span>`).join('');
+    // Verifica se o exame já está na lista
+    if (valorSelecionado && !listaDeExames.includes(textoSelecionado)) {
+        listaDeExames.push(textoSelecionado);
+        atualizarLista();
+    }
 
-  //CRIA O CAMPO DE SELEÇÃO APÓS A ESCOLHA DA OPÇÃO 'CONSULTA COM ESPECIALISTA' DO CAMPO
-  if(valorSelecionado == 'Consulta com especialista'){
-    especialidades.innerHTML = '<label for="especialidades">Especialidades</label>'+
-                                '<select name="especialidades">'+
-                                  '<option value="clinico-geral">Cardiologista</option>'+
-                                  '<option value="clinico-geral">Clínico Geral</option>'+
-                                  '<option value="clinico-geral">Dermatologista</option>'
-                               '</select>'
-  }
+    // Se a opção "Consulta com especialista" for selecionada, cria o select de especialidades
+    if (valorSelecionado === 'consulta-com-especialista') {
+        document.getElementById('tipos-especialidades').innerHTML = criarSelectEspecialidades();
 
-  // Atualiza a lista de selecionados
-  atualizarLista();
+        let selectEspecialidades = document.querySelector('.select_Especialidades');
 
+        // Captura e adiciona a especialidade selecionada à lista
+        selectEspecialidades.addEventListener('change', function() {
+            let especialidadeSelecionada = selectEspecialidades.options[selectEspecialidades.selectedIndex].text;
+
+            // Verifica se a especialidade já está na lista para evitar duplicidade
+            if (especialidadeSelecionada && !listaDeExames.includes(especialidadeSelecionada)) {
+                listaDeExames.push(especialidadeSelecionada);
+                atualizarLista();
+            }
+        });
+    } else {
+        document.getElementById('tipos-especialidades').innerHTML = ''; // Limpa se outro exame for selecionado
+    }
 }
 
+// Função para criar o select de especialidades
+function criarSelectEspecialidades() {
+    return `
+        <label for="especialidades">Especialidades</label>
+        <select name="especialidades" class="select_Especialidades">
+            <option value="">Selecione uma especialidade</option>
+            <option value="cardiologista">Cardiologista</option>
+            <option value="clinico-geral">Clínico Geral</option>
+            <option value="dermatologista">Dermatologista</option>
+        </select>
+    `;
+}
+
+// Função para atualizar a lista de exames no span com imagem de "X"
 function atualizarLista() {
-  let selecionados = document.getElementById('listaDeSelecionados');
-  selecionados.innerHTML = lista.map((item, index) => 
-    `<span>${item}<img src="/img/excluir.png" alt="excluir" id='excluir' onclick='excluir(${index})'></span>`
-  ).join(''); //MOSTRA O ARRAY NA DIV
+    let listaContainer = document.getElementById('listaDeSelecionados');
+    listaContainer.innerHTML = ''; // Limpa a lista para atualizar
+
+    listaDeExames.forEach((exame, index) => {
+        listaContainer.innerHTML += `
+            <span class="item-lista">
+                ${exame}
+                <img src="img/excluir.png" alt="Remover" class="excluir" onclick="excluir(${index})">
+            </span>
+        `;
+    });
 }
 
-//EXCLUI OS BALÕES CRIADOS NA SELEÇÃO DE EXAMES
+// Função para excluir um exame da lista
 function excluir(index) {
-  lista.splice(index, 1); // Remove o item do array pelo índice
-  atualizarLista(); // Atualiza a lista de selecionados na tela
-
-  especialidades.innerHTML = '';//Exclui o select de especialidades
+    listaDeExames.splice(index, 1); // Remove o exame da lista pelo índice
+    atualizarLista(); // Atualiza a lista na tela
 }
-
-
-
