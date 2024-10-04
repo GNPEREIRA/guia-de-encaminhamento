@@ -124,6 +124,8 @@
                 
         </fieldset>
 
+        
+
         <!--Recomendações-->
         <fieldset  class="box">
             <legend>Recomendações / Observações</legend>
@@ -131,6 +133,24 @@
             <div class="recomendacoes">
                 <textarea name="" id="recomendacoes"></textarea>    
             </div>  
+        </fieldset>
+
+        <!--Dados da clínica-->
+        <fieldset  class="box">
+            <legend>Unidade Prosed</legend>
+            <div class="unidades">
+                <label for="unidades">Escolha a unidade</label>
+                <select name="unidades" id="unidades" onchange="dadosUnidade(this)">
+                    <option value=""></option>
+                    <option value="cariacica">Cariacica</option>
+                    <option value="serra">Serra</option>
+                    <option value="vila-velha">Vila Velha</option>       
+                    <option value="vitoria">Vitória</option>       
+                </select>
+            </div>
+
+            <!--Criação de parágrafo na DOM-->
+            <div id="dados-unidade"></div>
         </fieldset>
 
     </div><!--fim principal-->

@@ -61,7 +61,8 @@ input, select{
 #tipos-especialidades,
 .data-admissao,
 .pre-matricula,
-.recomendacoes{
+.recomendacoes,
+.unidades{
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
@@ -165,4 +166,12 @@ div img{
     height: 100px;
     padding: 5px 10px;
     text-align: justify;
+    border-color: #061340;
+}
+
+/*Unidades Prosed*/
+.paragrafo-unidade{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }

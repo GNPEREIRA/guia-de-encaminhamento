@@ -117,3 +117,59 @@ function excluir(index) {
     listaDeExames.splice(index, 1); // Remove o exame da lista pelo índice
     atualizarLista(); // Atualiza a lista na tela
 }
+
+//Função para mostrar os dados da empresa
+let enderecos = {
+  cariacica : {
+    endereco : 'Rua José Barros da Silva, 17 - Campo Grande - Cariacica',
+    contato : '(27) 99582-6416'
+    
+  },
+  serra : {
+    endereco : 'Rua Humberto de Campos, 25 - Parque Residencial Laranjeiras - Serra',
+    contato : '(27) 99640-5527'
+  },
+  vilaVelha : {
+    endereco : 'Avenida Professora Francelina Carneiro Setubal, 168 - Itapuã - Vila Velha',
+    contato : '(27) 99640-5527'
+  },
+  vitoria : {
+    endereco : 'Rua Neves Armond, 535 - Enseada do Suá  - Vitória',
+    contato : '(27) 99582-6416',
+    mapa : 'https://www.google.com.br/maps/dir//R.+Neves+Armond,+535+-+Enseada+do+Su%C3%A1,+Vit%C3%B3ria+-+ES,+29050-705/@-20.3114918,-40.3057761,17.54z/data=!4m8!4m7!1m0!1m5!1m1!1s0xb817f55a0ce599:0xea981b2ebe0f9ad6!2m2!1d-40.3040213!2d-20.3111047?hl=pt-br&entry=ttu&g_ep=EgoyMDI0MTAwMi4xIKXMDSoASAFQAw%3D%3D'
+  }
+
+}
+
+function dadosUnidade(index){
+  let escolha = index.value;
+  let divDadosUnidade = document.getElementById('dados-unidade');
+
+  //console.log(escolha)
+  if(escolha === 'cariacica'){
+    //console.log(enderecos.cariacica.endereco)
+    divDadosUnidade.innerHTML = `<p class="paragrafo-unidade">
+                                  <span>${enderecos.cariacica.endereco}</span>
+                                  <span>${enderecos.cariacica.contato}</span>
+                                </p>`
+
+  }else if(escolha === 'serra'){
+    divDadosUnidade.innerHTML = `<p class="paragrafo-unidade">
+                                  <span>${enderecos.serra.endereco}</span>
+                                  <span>${enderecos.serra.contato}</span>
+                                </p>`
+  }else if(escolha === 'vila-velha'){
+    divDadosUnidade.innerHTML = `<p class="paragrafo-unidade">
+                                  <span>${enderecos.vilaVelha.endereco}</span>
+                                  <span>${enderecos.vilaVelha.contato}</span>
+                                </p>`
+  }else if(escolha === 'vitoria'){
+    divDadosUnidade.innerHTML = `<p class="paragrafo-unidade">
+                                  <span>${enderecos.vitoria.endereco}</span>
+                                  <span>${enderecos.vitoria.contato}</span>
+                                  <span>${enderecos.vitoria.mapa}</span>
+                                </p>`
+  }
+  
+}
+
