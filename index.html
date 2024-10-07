@@ -16,8 +16,7 @@
             </div>
             <div id="titulo1">
                 <p class="text1">GUIA DE ENCAMINHAMENTO DE EXAMES</p>
-            </div>
-            
+            </div>    
         </div>
         
         <!--Dados da empresa-->
@@ -71,7 +70,7 @@
 
                 <div class="cpf">
                     <label for="cpf">CPF</label>
-                    <input type="text" inputmode="numeric" maxlength="14" id="cpf" oninput="formatarCPF()">
+                    <input type="text" inputmode="numeric" maxlength="14" id="cpf" oninput="formatarCPF()" onblur="validarCPF(this)">
                 </div>
 
                 <div class="setor">
@@ -156,11 +155,11 @@
                 </div>
                 <div class="dados-responsavel">
                     <label for="telefone-fixo">Telefone Fixo</label>
-                    <input type="text" id="telefone-fixo">
+                    <input type="text" id="telefone-fixo" maxlength="14" inputmode="numeric" oninput="mascaraFixo(this)">
                 </div>
                 <div class="dados-responsavel">
                     <label for="celular">Celular</label>
-                    <input type="text" id="celular">
+                    <input type="text" id="celular" maxlength="15" inputmode="numeric" oninput="mascaraCelular(this)">
                 </div>
                 <div class="dados-responsavel">
                     <label for="email">E-mail</label>
@@ -171,9 +170,9 @@
                     <input type="date" id="dataEmissao">
                 </div>
             </div>
-            
         </fieldset>
-
+        <!-- <input type="text" id="teste">
+        <button onclick="validarCPF(this)">ok</button> -->
     </div><!--fim principal-->
 
     <script src="script.js"></script>

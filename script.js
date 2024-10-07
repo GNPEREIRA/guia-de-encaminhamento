@@ -28,6 +28,22 @@ function formatarCPF() {
   cpfInput.value = aplicarMascaraCPF(cpfInput.value);
 }
 
+function mascaraCelular(celular){
+  let numero = celular.value;
+  numero = numero.replace(/\D/g, "");
+  numero = numero.replace(/^(\d{2})(\d)/, "($1) $2");
+  numero = numero.replace(/(\d{5})(\d{4})$/, "$1-$2");
+  celular.value = numero;
+}
+
+function mascaraFixo(fixo){
+  let numero = fixo.value;
+  numero = numero.replace(/\D/g, "");
+  numero = numero.replace(/^(\d{2})(\d)/, "($1) $2");
+  numero = numero.replace(/(\d{4})(\d{4})$/, "$1-$2");
+  fixo.value = numero;
+}
+
 // Remove todos os caracteres que não sejam números
 function somenteNumero(input) {
   input.value = input.value.replace(/[^0-9]/g, '');
@@ -159,7 +175,7 @@ function dadosUnidade(index){
 
   }else if(escolha === 'serra'){
     divDadosUnidade.innerHTML = `<div class="paragrafo-unidade">
-                                    <div>
+                                  <div>
                                     <p>Ordem de chegada</p>
                                     <p>Horário de atendimento: 07:30 às 11:30 - 13:00 às 16:30</p>
                                   </div>
@@ -191,3 +207,33 @@ function dadosUnidade(index){
   
 }
 
+function validarCPF(cpf) {
+  
+  // Remover pontos e traços
+  cpf = cpf.replace(/[^\d]+/g, '');
+
+  // Verificar se o CPF tem 11 dígitos e se não é uma sequência de números iguais
+  if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+      alert("Inválido")
+      return false;
+  }
+
+  // Cálculo do primeiro dígito verificador
+  let soma = 0;
+  for (let i = 0; i < 9; i++) {
+      soma += parseInt(cpf.charAt(i)) * (10 - i);
+  }
+  let resto = 11 - (soma % 11);
+  let digito1 = (resto > 9) ? 0 : resto;
+
+  // Cálculo do segundo dígito verificador
+  soma = 0;
+  for (let i = 0; i < 10; i++) {
+      soma += parseInt(cpf.charAt(i)) * (11 - i);
+  }
+  resto = 11 - (soma % 11);
+  let digito2 = (resto > 9) ? 0 : resto;
+
+  // Verifica se os dígitos calculados são iguais aos do CPF informado
+  return digito1 === parseInt(cpf.charAt(9)) && digito2 === parseInt(cpf.charAt(10));
+}
