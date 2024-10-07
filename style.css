@@ -62,7 +62,8 @@ input, select{
 .data-admissao,
 .pre-matricula,
 .recomendacoes,
-.unidades{
+.unidades,
+.dados-responsavel{
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
@@ -173,5 +174,21 @@ div img{
 .paragrafo-unidade{
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: center;  
+}
+
+.paragrafo-unidade div{
+    margin-bottom: 30px;
+}
+
+.mapa{
+    width: 100%;
+    margin-top: 20px;
+}
+
+/*Dados do responsável oela emissão da guia*/
+.dados{
+    display: grid;
+    grid-template-columns: 1fr 0.1fr 0.1fr;
+    gap: 20px
 }

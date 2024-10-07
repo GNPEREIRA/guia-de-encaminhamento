@@ -88,7 +88,7 @@
             <div id="exames">
                 <div class="tipos">
                     <label for="tipos">Tipos</label>
-                    <select name="tipos" id="tipos-exames" onchange="adicionar()">
+                    <select name="tipos" required id="tipos-exames" onchange="adicionar()">
                         <option value=""></option>
                         <option value="admissional">Admissional</option>
                         <option value="avaliacao-medica">Avaliação médica</option>
@@ -103,7 +103,6 @@
                         <option value="detran">Toxicológico (DETRAN)</option>        
                     </select>
                 </div>
-
                 <!--Div onde será  criado o select de especialidades-->
                 <div id="tipos-especialidades"></div>  
                 
@@ -115,16 +114,11 @@
                 <div class="pre-matricula">
                     <label for="pre-matricula">Pré-matrícula</label>
                     <input type="text" id="pre-matricula" inputmode="numeric" oninput="somenteNumero(this)">
-                </div>
-                
+                </div>  
             </div>
-
             <!--Div onde será criada a lista de exames-->
-            <div id="listaDeSelecionados"></div>
-                
+            <div id="listaDeSelecionados"></div>     
         </fieldset>
-
-        
 
         <!--Recomendações-->
         <fieldset  class="box">
@@ -140,7 +134,7 @@
             <legend>Unidade Prosed</legend>
             <div class="unidades">
                 <label for="unidades">Escolha a unidade</label>
-                <select name="unidades" id="unidades" onchange="dadosUnidade(this)">
+                <select name="unidades" required id="unidades" onchange="dadosUnidade(this)">
                     <option value=""></option>
                     <option value="cariacica">Cariacica</option>
                     <option value="serra">Serra</option>
@@ -148,9 +142,36 @@
                     <option value="vitoria">Vitória</option>       
                 </select>
             </div>
-
             <!--Criação de parágrafo na DOM-->
             <div id="dados-unidade"></div>
+        </fieldset>
+
+        <!--Responsável pela emissão da guia-->
+        <fieldset class="box">
+            <legend>Responsável pela emissão da guia</legend>
+            <div class="dados">
+                <div class="dados-responsavel">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome">
+                </div>
+                <div class="dados-responsavel">
+                    <label for="telefone-fixo">Telefone Fixo</label>
+                    <input type="text" id="telefone-fixo">
+                </div>
+                <div class="dados-responsavel">
+                    <label for="celular">Celular</label>
+                    <input type="text" id="celular">
+                </div>
+                <div class="dados-responsavel">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="dados-responsavel">
+                    <label for="dataEmissao">Data de emissão</label>
+                    <input type="date" id="dataEmissao">
+                </div>
+            </div>
+            
         </fieldset>
 
     </div><!--fim principal-->

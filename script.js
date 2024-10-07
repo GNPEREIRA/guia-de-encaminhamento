@@ -89,7 +89,7 @@ function criarSelectEspecialidades() {
     return `
         <label for="especialidades">Especialidades</label>
         <select name="especialidades" class="select_Especialidades">
-            <option value="">Selecione uma especialidade</option>
+            <option value=""></option>
             <option value="cardiologista">Cardiologista</option>
             <option value="clinico-geral">Clínico Geral</option>
             <option value="dermatologista">Dermatologista</option>
@@ -135,8 +135,7 @@ let enderecos = {
   },
   vitoria : {
     endereco : 'Rua Neves Armond, 535 - Enseada do Suá  - Vitória',
-    contato : '(27) 99582-6416',
-    mapa : 'https://www.google.com.br/maps/dir//R.+Neves+Armond,+535+-+Enseada+do+Su%C3%A1,+Vit%C3%B3ria+-+ES,+29050-705/@-20.3114918,-40.3057761,17.54z/data=!4m8!4m7!1m0!1m5!1m1!1s0xb817f55a0ce599:0xea981b2ebe0f9ad6!2m2!1d-40.3040213!2d-20.3111047?hl=pt-br&entry=ttu&g_ep=EgoyMDI0MTAwMi4xIKXMDSoASAFQAw%3D%3D'
+    contato : '(27) 99582-6416'
   }
 
 }
@@ -148,27 +147,46 @@ function dadosUnidade(index){
   //console.log(escolha)
   if(escolha === 'cariacica'){
     //console.log(enderecos.cariacica.endereco)
-    divDadosUnidade.innerHTML = `<p class="paragrafo-unidade">
+    divDadosUnidade.innerHTML = `<didiv class="paragrafo-unidade">
+                                  <div>
+                                    <p>Ordem de chegada</p>
+                                    <p>Horário de atendimento: 07:30 às 11:30 - 13:00 às 16:30</p>
+                                  </div>                                 
                                   <span>${enderecos.cariacica.endereco}</span>
                                   <span>${enderecos.cariacica.contato}</span>
-                                </p>`
+                                  <img src="/img/cariacica.png" alt="mapa de Cariacica" class="mapa">
+                                </didiv>`
 
   }else if(escolha === 'serra'){
-    divDadosUnidade.innerHTML = `<p class="paragrafo-unidade">
+    divDadosUnidade.innerHTML = `<div class="paragrafo-unidade">
+                                    <div>
+                                    <p>Ordem de chegada</p>
+                                    <p>Horário de atendimento: 07:30 às 11:30 - 13:00 às 16:30</p>
+                                  </div>
                                   <span>${enderecos.serra.endereco}</span>
                                   <span>${enderecos.serra.contato}</span>
-                                </p>`
+                                  <img src="/img/serra.png" alt="mapa de Serra" class="mapa">
+                                </div>`
   }else if(escolha === 'vila-velha'){
-    divDadosUnidade.innerHTML = `<p class="paragrafo-unidade">
+    divDadosUnidade.innerHTML = `<div class="paragrafo-unidade">
+                                  <div>
+                                    <p>Ordem de chegada</p>
+                                    <p>Horário de atendimento: 07:30 às 11:30 - 13:00 às 16:30</p>
+                                  </div>
                                   <span>${enderecos.vilaVelha.endereco}</span>
                                   <span>${enderecos.vilaVelha.contato}</span>
-                                </p>`
+                                  <img src="/img/vila_velha.png" alt="mapa de Vila Velha" class="mapa">
+                                </div>`
   }else if(escolha === 'vitoria'){
-    divDadosUnidade.innerHTML = `<p class="paragrafo-unidade">
+    divDadosUnidade.innerHTML = `<div class="paragrafo-unidade">
+                                  <div>
+                                    <p>Ordem de chegada</p>
+                                    <p>Horário de atendimento: 07:30 às 11:30 - 13:00 às 16:30</p>
+                                  </div>
                                   <span>${enderecos.vitoria.endereco}</span>
                                   <span>${enderecos.vitoria.contato}</span>
-                                  <span>${enderecos.vitoria.mapa}</span>
-                                </p>`
+                                  <img src="/img/vitoria.png" alt="mapa de Vitória" class="mapa">
+                                </div>`
   }
   
 }
