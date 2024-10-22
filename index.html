@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <form id="meu-formulario" onsubmit="gerarPDF(event)" method="post">
+        <div id="principal">
+
+            <div id="conteiner-cabecalho">
+                <div class="imagem">
+                    <img src="img/logo-prosed.jpg" alt="Logo-Prosed">
+                </div>
+                <div id="titulo1">
+                    <p class="text1">GUIA DE ENCAMINHAMENTO DE EXAMES</p>
+                </div>    
+            </div>
+            
+            <!--Dados da empresa-->
+            <fieldset  class="box">
+                <legend>Dados da sua Empresa</legend>
+    
+                <div class="campos-empresa">
+                    <div class="campo-cnpj">
+                        <label for="cnpj">CNPJ
+                            <img src="img/pergunta.png" alt="" id="pergunta" onmouseover="dica()" style="margin-left: 5px;">
+                        </label>
+                        <input type="text" inputmode="numeric" id="cnpj" maxlength="18" oninput="mascaraCNPJ(this)" onblur="buscarDadosCNPJ()" required>
+                    </div>
+        
+                    <div class="razaoSocial">
+                        <label for="razaoSocial">Razão Social</label>
+                        <input type="text" id="razao-social" required>
+                    </div>
+    
+                    <div class="unidadeObra">
+                        <label for="unidade-obra">Unidade</label>
+                        <input type="text" id="unidade-obra" required>
+                    </div> 
+                </div> 
+            </fieldset>
+    
+            <!--Dados do funcionário-->
+            <fieldset  class="box">
+                <legend>Dados do funcionário</legend>
+                <div class="nome">
+                    <label for="nome-funcionario">Nome</label>
+                    <input type="text" id="nome-funcionario" oninput="somenteLetras(this)" required>
+                </div>
+    
+                <div class="campos-funcionario">
+                    <div class="rg">
+                        <label for="rg">R.G.</label>
+                        <input type="text" inputmode="numeric" id="rg" oninput="somenteNumero(this)" required>
+                    </div>
+    
+                    <div class="cpf">
+                        <label for="cpf">CPF</label>
+                        <input type="text" inputmode="numeric" maxlength="14" id="cpf" oninput="formatarCPF()" onblur="validarCPF(this)" required>
+                    </div>
+    
+                    <div class="data-nascimento">
+                        <label for="data-nascimento">Data de nascimento</label>
+                        <input type="date" id="data-nascimento" required>
+                    </div>
+    
+                    <div class="cargo">
+                        <label for="cargo">Cargo</label>
+                        <input type="text" id="cargo" required>
+                    </div> 
+
+                    <div class="pre-matricula">
+                        <label for="pre-matricula">Matrícula eSocial</label>
+                        <input type="text" id="pre-matricula" inputmode="numeric" oninput="somenteNumero(this)">
+                    </div> 
+                </div> 
+            </fieldset>
+    
+            <!--Exames-->
+            <fieldset  class="box">
+                <legend>Exames</legend>
+    
+                <div id="exames">
+                    <div class="tipos">
+                        <label for="tipos">Tipos</label>
+                        <select name="tipos" id="tipos-exames" onchange="adicionar()" required>
+                            <option value="" selected></option>
+                            <option value="admissional">Admissional</option>
+                            <option value="avaliacao-medica">Avaliação médica</option>
+                            <option value="consulta-com-especialista">Consulta com especialista</option>
+                            <option value="demissional">Demissional</option>
+                            <option value="laudo-pcd">Laudo de PCD</option>
+                            <option value="mudança-de-funcao">Mudança de função</option>
+                            <option value="periodico">Periódico</option>
+                            <option value="retorno-ao-trabalho">Retorno ao trabalho</option>
+                            <option value="trabalho-em-altura">Trabalho em altura</option>
+                            <option value="clt">Toxicológico (CLT)</option>
+                            <option value="detran">Toxicológico (DETRAN)</option>        
+                        </select>
+                    </div>
+                    <!--Div onde será  criado o select de especialidades-->
+                    <div id="tipos-especialidades"></div>  
+                    
+                    <div class="data-admissao">
+                        <label for="data-admissao">Data de admissão</label>
+                        <input type="date" id="data-admissao" required>
+                    </div>
+
+                    <!--Div onde será criado o campo input para informar nova função-->
+                    <div id="mudanca-funcao"></div>
+                </div>
+
+                <!--Div onde será criada a lista de exames-->
+                <div id="listaDeSelecionados"></div>     
+            </fieldset>
+
+            <fieldset class="box">
+                <legend>Treinamentos</legend>
+                <div id="treinamento">
+                    <div> 
+                        <label for="opcao"><input type="radio" name="opcao"  value="Não">Não</label>
+                    </div>
+                    <div id="opcaoSim">       
+                        <label for="opcao"><input type="radio" name="opcao" value="Sim">Sim</label>
+                        <div id="nome-treinamento"></div>
+                    </div>   
+                </div>
+            </fieldset>
+    
+            <!--Recomendações-->
+            <fieldset  class="box">
+                <legend>Recomendações / Observações</legend>
+    
+                <div class="recomendacoes">
+                    <textarea name="" id="recomendacoes"></textarea>    
+                </div>  
+            </fieldset>
+    
+            <!--Dados da clínica-->
+            <fieldset  class="box">
+                <legend>Unidade Prosed</legend>
+                <div class="unidades">
+                    <label for="unidades">Escolha a unidade</label>
+                    <select name="unidades" id="unidades" onchange="dadosUnidade(this)" required>
+                        <option value=""></option>
+                        <option value="Cariacica">Cariacica</option>
+                        <option value="Serra">Serra</option>
+                        <option value="Vila Velha">Vila Velha</option>       
+                        <option value="Vitória">Vitória</option>       
+                    </select>
+                </div>
+                <!--Criação de parágrafo na DOM-->
+                <div id="dados-unidade"></div>
+            </fieldset>
+    
+            <!--Responsável pela emissão da guia-->
+            <fieldset class="box">
+                <legend>Responsável pela emissão da guia</legend>
+                <div class="dados">
+                    <div class="dados-responsavel">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" required>
+                    </div>
+                    <div class="dados-responsavel">
+                        <label for="telefone-fixo">Telefone Fixo</label>
+                        <input type="text" id="telefone-fixo" maxlength="14" inputmode="numeric" oninput="mascaraFixo(this)">
+                    </div>
+                    <div class="dados-responsavel">
+                        <label for="celular">Celular</label>
+                        <input type="text" id="celular" maxlength="15" inputmode="numeric" oninput="mascaraCelular(this)" required>
+                    </div>
+                    <div class="dados-responsavel">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <!--Data do sistema-->
+                    <div class="dados-responsavel">
+                        <label for="dataEmissao">Data de emissão</label>
+                        <input type="text" id="dataEmissao" disabled >
+                    </div>
+                </div>
+            </fieldset> 
+            <button id="btn-Enviar">Enviar</button>
+        </div><!--Fim principal-->
+    </form>
+    <script src="script.js"></script>
+    <script src="scriptJSPDF.js"></script>
+</body>
+</html>

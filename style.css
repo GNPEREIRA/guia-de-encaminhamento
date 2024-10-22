@@ -1,0 +1,217 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #061340;
+}
+#principal{
+    width: 960px;
+    margin: 0 auto;
+}
+
+/*CSS com mesmas caracteristicas*/
+#conteiner-cabecalho{
+    display: grid;   
+}
+
+.box{
+    color: #edb626;
+    margin: 10px;  
+}
+
+fieldset,
+#recomendacoes{
+    border-radius: 5px;
+}
+
+fieldset legend{
+    margin-bottom: 20px;
+    font-weight: bolder;  
+}
+
+input, select{
+    font: 2.2em;
+    line-height: 25px;
+    border: 0.5px solid #e7e7e7;
+    border-radius: 5px; 
+    margin-top: 5px;
+    padding: 5px;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+.razaoSocial,
+.unidadeObra,
+.cargo,
+.cpf,
+#tipos-especialidades,
+#mudanca-funcao{
+    margin-left: 15px;
+}
+
+.campo-cnpj,
+.razaoSocial,
+.unidadeObra,
+.nome,
+.rg,
+.cpf,
+.cargo,
+.data-nascimento,
+.tipos,
+#tipos-especialidades,
+.data-admissao,
+.pre-matricula,
+.recomendacoes,
+.unidades,
+.dados-responsavel,
+#mudanca-funcao{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+/*Remove os controles no Chrome, Edge e Safari*/
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove os controles no Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/*CABECALHO*/
+#conteiner-cabecalho{
+    margin: 10px;
+    padding-left: 5px;
+    grid-template-columns: 0.7fr 3.7fr 0.8fr;
+    justify-items: center;
+    align-items: center;
+    color: #edb626;
+}
+
+.imagem{
+    padding-top: 3px;
+}
+
+div img{
+    width: 150px;
+}
+
+#titulo1, #titulo2{ 
+    font-size: 20px;
+}
+
+/*DADOS DA EMPRESA*/
+.campos-empresa{
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.5fr;
+}
+
+#pergunta{
+    width: 15px;
+}
+
+#razaoSocial{
+    margin-left: 10px;
+}
+
+#unidade-obra{
+    width: 250px;
+}
+
+/*DADOS DO FUNCIONÁRIO*/
+.campos-funcionario{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/*EXAMES*/
+#exames{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.exames-selecionados{
+    color:#edb626;
+}
+
+#listaDeSelecionados,
+#lista_de_especialidades{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 3px;
+}
+
+#listaDeSelecionados span,
+#lista_de_especialidades span{
+    border: 1px solid #edb626;
+    border-radius: 50px;
+    max-width: fit-content;
+    padding: 10px;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 9fr 0.2fr;
+    align-items: center;
+    text-align: center;
+}
+
+.excluir{
+    width: 20px;
+}
+
+/*Treinamentos*/
+#nome-treinamento-input{
+    width: 98%;
+    
+}
+
+#opcaoSim{
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    align-items: center;
+}
+
+/*Recomendações*/
+#recomendacoes{
+    resize: none;
+    height: 100px;
+    padding: 5px 10px;
+    text-align: justify;
+    border-color: #061340;
+}
+
+/*Unidades Prosed*/
+.paragrafo-unidade{
+    display: flex;
+    flex-direction: column;
+    text-align: center;  
+}
+
+.paragrafo-unidade div{
+    margin-bottom: 30px;
+}
+
+.mapa{
+    width: 100%;
+    margin-top: 20px;
+}
+
+/*Dados do responsável oela emissão da guia*/
+.dados{
+    display: grid;
+    grid-template-columns: 1fr 0.1fr 0.1fr;
+    gap: 20px
+}
+
+/*Botão*/
+#btn-Enviar{
+    margin: 15px;
+    width: 150px;
+    height: 50px;
+    background: #edb626;
+    color:#061340;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 5px;
+}
