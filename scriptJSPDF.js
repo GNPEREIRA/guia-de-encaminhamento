@@ -133,21 +133,21 @@ document.addEventListener("DOMContentLoaded", function () {
             endereco = 'R. Humberto de Campos, 25'
             bairro = 'Parque Residencial Laranjeiras'
             cidade = 'Serra/ES'
-            mapa = 'img/serra.png'
+            mapa = 'img/serra21.png'
             referencia = `Após o Palácio dos Brinquedos \n(Av. Central), Primeira esquerda`
         }if(unidadeProsed === 'Vila Velha'){
             telefone = '(27) 99640-5527';
             endereco = 'Av. Profª Francelina Carneiro Setubal, 168'
             bairro = 'Itapuã'
             cidade = 'Vila Velha/ES'
-            mapa = 'img/vila_velha.png'
+            mapa = 'img/vila_velha21.png'
             referencia = `Próximo ao terminal de Vila Velha.\nAtrás da loja de armas, Guerreiros`
         }else if(unidadeProsed === 'Vitória'){
             telefone = '(27) 99582-6416';
             endereco = 'R. Neves Armond, 535'
             bairro = 'Enseada do Suá'
             cidade = 'Vitória/ES'
-            mapa = 'img/vitoria.png'
+            mapa = 'img/vitoria21.png'
             referencia = `Próximo a EDP Escelsa (Av. Vitória).\nAo lado da Dakar Veículos`
         }
 
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
             };
             reader.readAsDataURL(inputImage.files[0]); // Converte a imagem selecionada para base64
         } else {
-            doc.save('dados-formulario.pdf'); // Se não houver imagem dinâmica, gera o PDF diretamente
+            doc.save(`${nomeFuncionario}.pdf`); // Se não houver imagem dinâmica, gera o PDF diretamente
         }
     }
 

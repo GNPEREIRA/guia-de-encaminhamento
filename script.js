@@ -239,7 +239,7 @@ function dadosUnidade(index){
                                   </div>
                                   <span>${enderecos.serra.endereco}</span>
                                   <span>${enderecos.serra.contato}</span>
-                                  <img src="/img/serra.png" alt="mapa de Serra" class="mapa">
+                                  <img src="/img/serra21.png" alt="mapa de Serra" class="mapa">
                                 </div>`
   }else if(escolha === 'Vila Velha'){
     divDadosUnidade.innerHTML = `<div class="paragrafo-unidade">
@@ -249,7 +249,7 @@ function dadosUnidade(index){
                                   </div>
                                   <span>${enderecos.vilaVelha.endereco}</span>
                                   <span>${enderecos.vilaVelha.contato}</span>
-                                  <img src="/img/vila_velha.png" alt="mapa de Vila Velha" class="mapa">
+                                  <img src="/img/vila_velha21.png" alt="mapa de Vila Velha" class="mapa">
                                 </div>`
   }else if(escolha === 'Vitória'){
     divDadosUnidade.innerHTML = `<div class="paragrafo-unidade">
@@ -259,8 +259,8 @@ function dadosUnidade(index){
                                   </div>
                                   <span>${enderecos.vitoria.endereco}</span>
                                   <span>${enderecos.vitoria.contato}</span>
-                                  <img src="/img/vitoria.png" alt="mapa de Vitória" class="mapa">
-                                </div>`
+                                  <img src="/img/vitoria21.png" alt="mapa de Vitória" class="mapa">
+                                </div>` //413X287
   }
   
 }
